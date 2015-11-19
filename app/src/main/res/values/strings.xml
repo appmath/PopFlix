@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">PopFlix</string>
+    <string name="action_settings">Settings</string>
+    <string name="error">Failed to load this URL:</string>
+    <string name="movie_poster">Movie poster</string>
+    <string name="error_network">No connection</string>
+    <string name="check_network">Please, check your network connection</string>
+    <string name="trailers">Trailers</string>
+    <string name="trailer_for">"Trailer for: "</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="reviews">Reviews</string>
+    <string name="synopsis_example">In the near future, crime is patrolled by a mechanized police force. When one police
+        droid, Chappie, is stolen and given new programming, he becomes the first robot with the ability to think and
+        feel for himself.
+    </string>
+    <string name="rating">Rating:&#160;</string>
+    <string name="sort_movies_menu">Sort movies</string>
+    <string name="sort_by_popularity">Most popular</string>
+    <string name="sort_by_highest_rated">Highest rated</string>
+    <string name="favorites">Favorites</string>
+    <string name="share">Share trailer</string>
+    <array name="menu_items">
+        <item>@string/sort_by_popularity</item>
+        <item>@string/sort_by_highest_rated</item>
+    </array>
+
+</resources>

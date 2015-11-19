@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:background="@color/md_grey_100"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+
+    <it.gmariotti.cardslib.library.view.CardListView
+            android:id="@+id/trailer_card_list_view"
+            card:list_card_layout_resourceID="@layout/list_card_thumbnail_layout"
+            style="@style/list_card.thumbnail"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

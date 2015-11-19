@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+
+                tools:showIn="@layout/activity_main_flix"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+        >
+
+    <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    <tr.xip.errorview.ErrorView
+            android:id="@+id/error_view"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    <TextView
+            android:id="@+id/message_text_view"
+            android:layout_centerInParent="true"
+            android:text="@string/error"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:clipToPadding="false"
+                android:layout_margin="@dimen/recycler_view_margin"
+                android:visibility="visible"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                />
+
+
+        <FrameLayout
+                android:id="@+id/flick_detail_container"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_width="0dp">
+
+        </FrameLayout>
+
+
+        <!--<include layout="@layout/fragment_flick_detail"-->
+                <!--android:layout_weight="1"-->
+                 <!--android:layout_height="match_parent"-->
+                 <!--android:layout_width="0dp"/>-->
+
+    </LinearLayout>
+
+</RelativeLayout>
