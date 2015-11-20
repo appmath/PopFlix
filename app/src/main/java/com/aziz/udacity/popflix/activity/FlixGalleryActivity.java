@@ -133,6 +133,7 @@ public class FlixGalleryActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     public void onEventMainThread(ShowShareMenuItemEvent event) {
         mTrailerUrl = event.getTrailerUrl();
+        mTrailerMsg = event.getTrailerMsg();
         if (mMenuShareItem != null && mTrailerUrl != null) {
             mMenuShareItem.setVisible(true);
         }

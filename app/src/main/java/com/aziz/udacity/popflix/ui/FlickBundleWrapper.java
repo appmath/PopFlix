@@ -73,6 +73,7 @@ public class FlickBundleWrapper {
         mBundle.putBoolean(DUAL_PANE, dualPane);
         return this;
     }
+
     public boolean isFavoriteMode() {
         return mBundle.getBoolean(IS_FAVORITE_MODE);
     }
