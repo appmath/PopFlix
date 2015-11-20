@@ -141,7 +141,7 @@ public class FlixGalleryFragment extends Fragment implements MovieSelectedListen
                         showFavorites();
                     }
                 }
-            } else if (isFavorites()) {
+            } else if (isFavorites()) { // There is no available network, let's try to display the favorites.
                 showFavorites();
             } else {
                 showError(getString(R.string.error_network), getString(R.string.check_network));
@@ -322,19 +322,21 @@ public class FlixGalleryFragment extends Fragment implements MovieSelectedListen
      */
     @SuppressWarnings("unused")
     public void onEventMainThread(RefreshEvent event) {
-        if (Repository.hasFlixData(getActivity())) {
-            showFlix(Utils.retrieveFlixFromDb(getActivity()));
-        } else {
-            mRecyclerView.setVisibility(View.GONE);
-            showEmptyFavoritesError();
+        if (mSortType.equals(FlixSortType.FAVORITES)) {
+            if (Repository.hasFlixData(getActivity())) {
+                showFlix(Utils.retrieveFlixFromDb(getActivity()));
+            } else {
+                mRecyclerView.setVisibility(View.GONE);
+                showEmptyFavoritesError();
 
-        }
-        FragmentManager fm = getActivity().getSupportFragmentManager();
-        Fragment fragment = fm.findFragmentByTag(FlickDetailFragment.FRAG_NAME);
-        if (fragment != null) {
-            FragmentTransaction transaction = fm.beginTransaction();
-            transaction.remove(fragment);
-            transaction.commit();
+            }
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            Fragment fragment = fm.findFragmentByTag(FlickDetailFragment.FRAG_NAME);
+            if (fragment != null) {
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.remove(fragment);
+                transaction.commit();
+            }
         }
 
     }

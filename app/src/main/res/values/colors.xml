@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="youtube">#CD201F</color>
+    <color name="favorite_heart">#ffcc0000</color>
 
 
 </resources>

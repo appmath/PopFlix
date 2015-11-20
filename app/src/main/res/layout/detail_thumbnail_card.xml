@@ -3,6 +3,7 @@
 
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_marginBottom="3dp"
         android:orientation="vertical"
         android:layout_marginLeft="10dp"
@@ -46,12 +47,12 @@
                         android:paddingTop="10dp"
                         android:elevation="10dp"
                         android:background="@color/md_grey_800"
-                        android:paddingLeft="20dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
                                 android:id="@+id/flick_year_text_view"
                                 android:text="2015"
+                                android:paddingLeft="20dp"
                                 android:textSize="20sp"
                                 android:textColor="@color/md_white_1000"
                                 android:textStyle="bold"
@@ -60,6 +61,7 @@
                         <TextView
                                 android:id="@+id/flick_time_length_text_view"
                                 android:textColor="@color/md_white_1000"
+                                android:paddingLeft="20dp"
 
                                 android:text="120 min"
                                 android:paddingTop="6dp"
@@ -69,6 +71,7 @@
                         <TextView
                                 android:id="@+id/flick_rating_text_view"
                                 android:text="Rating: 8/10"
+                                android:paddingLeft="20dp"
                                 android:paddingTop="6dp"
                                 android:textColor="@color/md_white_1000"
                                 android:layout_width="wrap_content"
@@ -80,16 +83,20 @@
                         <!--app:iiv_icon="fav_heart_o"-->
                         <!--android:layout_width="50dp"-->
                         <!--android:layout_height="50dp"/>-->
-                        <ToggleButton
-                                android:id="@+id/flick_favorite_button"
-                                android:background="@null"
-                                android:contentDescription="favorite"
-                                android:textOn=""
-                                android:textOff=""
-                                android:paddingTop="10dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"/>
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+                        <ImageView
+                                android:id="@+id/fav_image_view"
+                                android:layout_gravity="center"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"/>
+
+
+                    </LinearLayout>
 
 
                 </LinearLayout>

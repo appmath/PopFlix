@@ -17,6 +17,7 @@ import com.aziz.udacity.popflix.R;
 import com.aziz.udacity.popflix.event.ShowShareMenuItemEvent;
 import com.aziz.udacity.popflix.model.Review;
 import com.aziz.udacity.popflix.model.Trailer;
+import com.aziz.udacity.popflix.ui.CardAdapterCallBack;
 import com.aziz.udacity.popflix.ui.DetailThumbnailCard;
 import com.aziz.udacity.popflix.ui.FlickBundleWrapper;
 import com.aziz.udacity.popflix.ui.FlickReviewsExpandCard;
@@ -44,7 +45,7 @@ import java.util.ArrayList;
  * @author Aziz Kadhi
  */
 
-public class FlickDetailFragment extends Fragment {
+public class FlickDetailFragment extends Fragment implements CardAdapterCallBack {
 
     public static final String FRAG_NAME = FlickDetailFragment.class.getSimpleName();
 
@@ -59,6 +60,7 @@ public class FlickDetailFragment extends Fragment {
     private boolean mHasTrailers;
     private String mTrailerUrl;
     private String mTrailerMsg;
+    private CardArrayAdapter mCardArrayAdapter;
 
 
     public FlickDetailFragment() {
@@ -78,8 +80,7 @@ public class FlickDetailFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_flick_detail, container, false);
         ButterKnife.bind(this, view);
@@ -92,7 +93,7 @@ public class FlickDetailFragment extends Fragment {
             FlickBundleWrapper wrapper = new FlickBundleWrapper(args);
 
             // Add card that contains the movie details like title, poster, etc
-            DetailThumbnailCard detailCard = new DetailThumbnailCard(getActivity(), wrapper);
+            DetailThumbnailCard detailCard = new DetailThumbnailCard(getActivity(), wrapper, this);
             cards.add(detailCard);
 
             mDualPane = wrapper.getDualPane();
@@ -107,7 +108,7 @@ public class FlickDetailFragment extends Fragment {
                 addReviewsCard(wrapper.getReviews(), cards);
             }
 
-            CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(), cards);
+            mCardArrayAdapter = new CardArrayAdapter(getActivity(), cards);
             if (mTrailerCardListView != null) {
                 mTrailerCardListView.setAdapter(mCardArrayAdapter);
             }
@@ -237,6 +238,13 @@ public class FlickDetailFragment extends Fragment {
         return card;
     }
 
+    /**
+     * Force the card to redraw itself by calling CardArrayAdapter.notifyDataSetChanged()
+     */
+    @Override
+    public void updateCard() {
+        mCardArrayAdapter.notifyDataSetChanged();
+    }
 
     @Override
     public void onDestroyView() {
@@ -245,4 +253,7 @@ public class FlickDetailFragment extends Fragment {
     }
 
 
+
+
 }
+

@@ -43,7 +43,7 @@ public class FlickReviewsExpandCard extends CardExpand {
     private final String mMessage;
 
     public FlickReviewsExpandCard(Context context, String titleHeader, String message) {
-        super(context, R.layout.synopsis_expandable_card_inner);
+        super(context, R.layout.reviews_expandable_card_inner);
         this.mTitleHeader = titleHeader;
         this.mMessage = message;
 
