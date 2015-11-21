@@ -45,10 +45,6 @@ dependencies {
     compile 'com.github.gabrielemariotti.cards:cardslib-core:2.1.0'
     compile 'com.jakewharton.timber:timber:4.1.0'
     compile 'de.greenrobot:eventbus:2.4.0'
-    compile 'io.reactivex:rxandroid:1.0.1'
     compile 'au.com.jtribe.shelly:shelly:0.1.6@aar'
-// Because RxAndroid releases are few and far between, it is recommended you also
-// explicitly depend on RxJava's latest version for bug fixes and new features.
-    compile 'io.reactivex:rxjava:1.0.14'
-    compile 'io.reactivex:rxjava-joins:0.22.0'
+
 }
