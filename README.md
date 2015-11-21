@@ -1,5 +1,5 @@
 # PopFlix
-Project for Udacity's "Developing Android Apps" course (Popular Movies). 
+Project for Udacity's "Developing Android Apps" course (Popular Movies). Includes Stage 1 and Stage 2.
 
 You need to request **your own API KEY from https://www.themoviedb.org**, then locate in the build.gradle file this line: it.buildConfigField 'String', 'API_KEY', '"YOUR MOVIEDB API KEY"' and just replace the last entry with you own API KEY.
 
