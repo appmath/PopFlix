@@ -89,7 +89,7 @@
                             android:gravity="center"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content">
-                        <ImageView
+                        <com.aziz.udacity.popflix.ui.FavImageView
                                 android:id="@+id/fav_image_view"
                                 android:layout_gravity="center"
                                 android:layout_width="50dp"

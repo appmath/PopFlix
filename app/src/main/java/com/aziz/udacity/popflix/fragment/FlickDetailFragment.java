@@ -220,21 +220,6 @@ public class FlickDetailFragment extends Fragment implements CardAdapterCallBack
 
         //Swipe
         card.setSwipeable(true);
-
-        //Animator listener
-        card.setOnExpandAnimatorEndListener(new Card.OnExpandAnimatorEndListener() {
-            @Override
-            public void onExpandEnd(Card card) {
-
-            }
-        });
-
-        card.setOnCollapseAnimatorEndListener(new Card.OnCollapseAnimatorEndListener() {
-            @Override
-            public void onCollapseEnd(Card card) {
-
-            }
-        });
         return card;
     }
 
@@ -251,8 +236,6 @@ public class FlickDetailFragment extends Fragment implements CardAdapterCallBack
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
-
-
 
 
 }

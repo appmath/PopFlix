@@ -1,7 +1,6 @@
 package com.aziz.udacity.popflix.ui;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,6 @@ import com.aziz.udacity.popflix.R;
 import com.aziz.udacity.popflix.data.Repository;
 import com.aziz.udacity.popflix.event.RefreshEvent;
 import com.aziz.udacity.popflix.util.Utils;
-import com.mikepenz.fontawesome_typeface_library.FontAwesome;
-import com.mikepenz.iconics.IconicsDrawable;
 import com.squareup.picasso.Picasso;
 import de.greenrobot.event.EventBus;
 import it.gmariotti.cardslib.library.internal.Card;
@@ -60,11 +57,9 @@ public class DetailThumbnailCard extends Card {
     TextView mFlickSynopsisTextView;
     
     @Bind(R.id.fav_image_view)
-    ImageView mFavImageView;
+    FavImageView mFavImageView;
 
     private WeakReference<Context> mWeakCtxRef;
-    private IconicsDrawable mFlickFavUnselectedDrawable;
-    private IconicsDrawable mFlickFavSelectedDrawable;
 
 
     /**
@@ -79,18 +74,6 @@ public class DetailThumbnailCard extends Card {
         this.mWrapper = wrapper;
         mCallBack = callBack;
         mWeakCtxRef = new WeakReference<Context>(ctx);
-
-        mFlickFavUnselectedDrawable = createIconicsDrawable(ctx, FontAwesome.Icon.faw_heart_o);
-        mFlickFavSelectedDrawable = createIconicsDrawable(ctx, FontAwesome.Icon.faw_heart);
-
-
-    }
-
-    private IconicsDrawable createIconicsDrawable(Context ctx, FontAwesome.Icon icon) {
-        return new IconicsDrawable(ctx)
-            .icon(icon)
-            .color(Color.RED)
-            .sizeDp(48);
     }
 
     private void setPosterImageView(FlickBundleWrapper wrapper, Context ctx) {
@@ -112,9 +95,9 @@ public class DetailThumbnailCard extends Card {
         final Bundle args = mWrapper.getBundle();
         if (args != null) {
             FlickBundleWrapper wrapper = new FlickBundleWrapper(args);
-            switchIcons();
-            boolean isPressed = isPressed();
-            Timber.d("isPressed " + isPressed);
+            mFavImageView.switchPressedMode();
+            boolean isPressed = mFavImageView.isFavPressed();
+            Timber.d("isFavPressed " + isPressed);
             if (isPressed) {
                 // Add this flick to the DB and update the icon
                 try {
@@ -124,7 +107,7 @@ public class DetailThumbnailCard extends Card {
                 } catch (Exception e) {
                     Timber.e("Failed to persist flick with details: " + wrapper.getTitle(), e);
                 }
-                mFavImageView.setImageDrawable(mFlickFavSelectedDrawable);
+
             } else {
                 // Remove this flick from the DB and update the icon
                 try {
@@ -134,7 +117,6 @@ public class DetailThumbnailCard extends Card {
                 } catch (Exception e) {
                     Timber.e("Failed to delete flick with details: " + wrapper.getTitle(), e);
                 }
-                mFavImageView.setImageDrawable(mFlickFavUnselectedDrawable);
             }
             mWrapper.isPersisted(isPressed);
             mCallBack.updateCard();
@@ -155,30 +137,15 @@ public class DetailThumbnailCard extends Card {
         mFlickYearTextView.setText(mWrapper.getReleaseDate());
         mFlickTimeLengthTextView.setText(mWrapper.getFlickLength());
         mFlickRatingTextView.setText(ctx.getString(R.string.rating) + mWrapper.getUserRating());
-
         mFlickSynopsisTextView.setText(mWrapper.getSynopsis());
 
+        mFavImageView.setFavPressed(mWrapper.getIsPersisted());
 
-        if (mWrapper.getIsPersisted()) {
-            mFavImageView.setImageDrawable(mFlickFavSelectedDrawable);
-        } else {
-            mFavImageView.setImageDrawable(mFlickFavUnselectedDrawable);
-
-        }
 
     }
 
-    private boolean isPressed() {
-        return mFavImageView.getDrawable() == mFlickFavSelectedDrawable;
-    }
 
-    public void switchIcons() {
-        if (isPressed()) {
-            mFavImageView.setImageDrawable(mFlickFavUnselectedDrawable);
-        } else {
-            mFavImageView.setImageDrawable(mFlickFavSelectedDrawable);
-        }
-    }
+
 
 
 }
