@@ -9,6 +9,6 @@ Project for Udacity's "Developing Android Apps" course (Popular Movies).
 <img src=https://github.com/appmath/PopFlix/blob/master/screenshots/nexus_5_share.png width=260 height=500 />
 
 <img src=https://github.com/appmath/PopFlix/blob/master/screenshots/samsung_most_popular.png width=300 height=500 />
-<img src=https://github.com/appmath/PopFlix/blob/master/screenshots/samsung_favorites.png width=300 height=500 />
+<img src=https://github.com/appmath/PopFlix/blob/master/screenshots/samsung_favorites_details.png width=300 height=500 />
 
 There are 3 AndroidTestCase classes for unit testing the ContentProvider, the DBHelper and the Repository. 
