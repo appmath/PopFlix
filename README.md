@@ -12,3 +12,24 @@ Project for Udacity's "Developing Android Apps" course (Popular Movies).
 <img src=https://github.com/appmath/PopFlix/blob/master/screenshots/samsung_favorites_details.png width=300 height=500 />
 
 There are 3 AndroidTestCase classes for unit testing the ContentProvider, the DBHelper and the Repository. 
+
+These are some of the additional libraries I have used:
+
+Retrofit 2.0.0-beta2
+
+Okhttp 2.4.0
+
+Picasso 2.5.2
+
+Jake Wharton's Butter Knife 7.0.1 and Timber 4.1.0
+
+EventBus 2.4.0
+
+Shelly 0.1.6
+
+Mike Penz's Android-Iconics 2.2
+
+ErrorView 2.x
+
+and finally Gabriel Mariotti's CardsLib 2.1.0
+
