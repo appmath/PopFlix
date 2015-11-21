@@ -38,12 +38,12 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
     compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.jakewharton.timber:timber:4.1.0'
     compile 'com.github.xiprox.errorview:library:2.+'
     compile 'com.mikepenz:iconics-core:2.2.0@aar'
     compile 'com.mikepenz:fontawesome-typeface:4.4.0.1@aar'
     //Core card library by Gabriel Mariotti
     compile 'com.github.gabrielemariotti.cards:cardslib-core:2.1.0'
-    compile 'com.jakewharton.timber:timber:4.1.0'
     compile 'de.greenrobot:eventbus:2.4.0'
     compile 'au.com.jtribe.shelly:shelly:0.1.6@aar'
 
